@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VideosThumbnailService } from './videos-thumbnail/video-thumbnail/video-thumbnail.service';
 
 
@@ -12,16 +12,20 @@ const termoBusca = 'Kimetsu no Yaiba';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   
   videos: Object[] = [];
  
 
-  constructor(videoService: VideosThumbnailService){ //Injetando o servico de video service
+  constructor(private videoService: VideosThumbnailService){} //Injetando o servico de video service
 
-    videoService
+  ngOnInit():void{
+    this.videoService
       .pesquisaVideos('Kimetsu no Yaiba')
-      .subscribe(videos => this.videos = videos.items);
+      .subscribe((videos)=>{
+        this.videos = videos
+        console.log(this.videos)
+      });
   }
   
 }
