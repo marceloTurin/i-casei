@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+
+const API = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=';
+const APIKey =  'AIzaSyBlcCSVJHndx4Qw1pyeLy-a1t0vfxf1b3U';
+const termoBusca = 'Kimetsu no Yaiba';
 
 @Component({
   selector: 'app-root',
@@ -6,21 +12,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  
+  videos: Object[] = [];
+ 
 
-  videos = [
-    {
-      url: 'https://www.animenew.com.br/wp-content/uploads/2018/05/Kimetsu-no-Yaiba-est%C3%BAdio-ufotable.jpg',
-      tituloVideo: 'Titulo video 1',
-      nomeCanal: 'Nome do canal',
-      descricaoVideo: 'Descricao do video'
-    },
-    {
-      url: 'https://www.animenew.com.br/wp-content/uploads/2018/05/Kimetsu-no-Yaiba-est%C3%BAdio-ufotable.jpg',
-      tituloVideo: 'Titulo video 2',
-      nomeCanal: 'Nome do canal 2',
-      descricaoVideo: 'Descricao do video 2'
-    }
-  ]
+  constructor(http: HttpClient){ //Injetando o HttpClient 
+
+    http.get<Object[]>(`${API}${termoBusca}&key=${APIKey}`)
+      .subscribe(videos => {
+        console.log(videos.items);
+        this.videos = videos.items;
+      });
+
+  }
+  
 }
 
