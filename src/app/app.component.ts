@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { VideosThumbnailService } from './videos-thumbnail/video-thumbnail/video-thumbnail.service';
+
 
 
 const API = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=';
@@ -16,14 +17,11 @@ export class AppComponent {
   videos: Object[] = [];
  
 
-  constructor(http: HttpClient){ //Injetando o HttpClient 
+  constructor(videoService: VideosThumbnailService){ //Injetando o servico de video service
 
-    http.get<Object[]>(`${API}${termoBusca}&key=${APIKey}`)
-      .subscribe(videos => {
-        console.log(videos.items);
-        this.videos = videos.items;
-      });
-
+    videoService
+      .pesquisaVideos('Kimetsu no Yaiba')
+      .subscribe(videos => this.videos = videos.items);
   }
   
 }
