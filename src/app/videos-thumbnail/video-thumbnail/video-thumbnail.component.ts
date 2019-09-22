@@ -4,7 +4,7 @@ import { Component, Input } from "@angular/core";
     selector: 'video-thumbnail',
     templateUrl: 'video-thumbnail.component.html'
 })
-export class VideoThumbnail {
+export class VideoThumbnailComponent {
 
     //Passando dados na forma declarativa do componente
     @Input() url = '';

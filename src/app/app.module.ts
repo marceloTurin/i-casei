@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { VideosThumbnailModule } from './videos-thumbnail/videos-thumbanail.module';
 
-import { VideoThumbnail } from './video-thumbnail/video-thumbnail.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    VideoThumbnail
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    VideosThumbnailModule // Carregando os componentes que faz parte de Videos Thumbnails
   ],
   providers: [],
   bootstrap: [AppComponent]
