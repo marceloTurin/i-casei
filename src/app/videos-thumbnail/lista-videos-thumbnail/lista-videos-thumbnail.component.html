@@ -1,0 +1,7 @@
+<video-thumbnail 
+    *ngFor="let video of videos.items"
+    [url]='video.snippet.thumbnails.high.url'
+    [tituloVideo]='video.snippet.title'
+    [nomeCanal]='video.snippet.channelTitle'
+    [descricaoVideo]='video.snippet.description'
+  ></video-thumbnail>
