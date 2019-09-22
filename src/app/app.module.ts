@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { VideosThumbnailModule } from './videos-thumbnail/videos-thumbanail.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app.routing.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     VideosThumbnailModule, // Carregando os componentes que faz parte de Videos Thumbnails
-    HttpClientModule //Importondo o HttpCliente na aplicação
+    HttpClientModule, //Importondo o HttpCliente na aplicação
+    AppRoutingModule //Importando o componente que faz as rotas do aplicativo
   ],
   providers: [],
   bootstrap: [AppComponent]
