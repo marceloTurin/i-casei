@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ListaVideosThumbnailComponent implements OnInit {
 
   videos: Object[] = [];
+  buscaInput: string = '';
  
 
   constructor(
@@ -25,7 +26,16 @@ export class ListaVideosThumbnailComponent implements OnInit {
       .pesquisaVideos(termoPesquisado)
       .subscribe((videos)=>{
         this.videos = videos
-        console.log(this.videos)
+        //console.log(videos.items)
+      });
+  }
+
+  pesquisaVideo(buscaInput: string){
+    this.videoService
+      .pesquisaVideos(buscaInput)
+      .subscribe((videos)=>{
+        this.videos = videos
+        this.activatedRoute.snapshot.params.termoPesquisado = buscaInput
       });
   }
 }

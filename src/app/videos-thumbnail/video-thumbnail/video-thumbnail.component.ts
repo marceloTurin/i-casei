@@ -11,5 +11,6 @@ export class VideoThumbnailComponent {
     @Input() tituloVideo = '';
     @Input() nomeCanal = '';
     @Input() descricaoVideo = '';
+    @Input() videoID : Object[] = [];
 
 }
