@@ -1,0 +1,49 @@
+
+.center {
+    display: grid; 
+    height: 100vh; 
+    place-items: center center;
+}
+
+/* Animação Pesquisa */
+#pesquisa.animaIn{
+    display:block;
+
+    animation-name: moviePesquisaIn;
+    animation-duration: 2s;
+
+    /* Firefox: */
+    -moz-animation-name: moviePesquisaIn;
+    -moz-animation-duration: 2s;
+
+    /* Safari and Chrome: */
+    -webkit-animation-name: moviePesquisaIn;
+    -webkit-animation-duration: 2s;
+
+    /* Opera: */
+    -o-animation-name: moviePesquisaIn;
+    -o-animation-duration: 2s;
+}
+@keyframes moviePesquisaIn
+{
+    from {margin-top: 500px;}
+    to   {margin-top: 16px;}
+}
+@-moz-keyframes moviePesquisaIn /* Firefox */
+{
+    from {margin-top: 500px;}
+    to   {margin-top: 16px;}
+}
+
+@-webkit-keyframes moviePesquisaIn /* Safari and Chrome */
+{
+    from {margin-top: 500px;}
+    to   {margin-top: 16px;}
+}
+
+@-o-keyframes moviePesquisaIn /* Opera */
+{
+    from {margin-top: 500px;}
+    to   {margin-top: 16px;}
+}
+/* Fim da Animação*/
