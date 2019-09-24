@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { VideosThumbnailService } from '../video-thumbnail/video-thumbnail.service';
-import { VideoDetalheService } from '../video-detalhes/video-detalhes.service';
 import { ActivatedRoute } from '@angular/router';
 import { Injectable } from "@angular/core";
 
@@ -19,8 +18,7 @@ export class ListaVideosThumbnailComponent implements OnInit {
 
   constructor(
     private videoService: VideosThumbnailService,
-    private activatedRoute : ActivatedRoute,
-    private videoDetalheService : VideoDetalheService
+    private activatedRoute : ActivatedRoute
     ){} //Injetando o servico de video service
 
   ngOnInit():void{
@@ -33,7 +31,7 @@ export class ListaVideosThumbnailComponent implements OnInit {
     this.videoService
       .pesquisaVideos(buscaInput)
       .subscribe((videos)=>{
-        //this.videos = [];
+        this.videos = [];
         this.videos.push(videos)
         console.log(this.videos)
         //this.activatedRoute.snapshot.params.termoPesquisado = buscaInput
@@ -50,20 +48,10 @@ export class ListaVideosThumbnailComponent implements OnInit {
       })
 
   }
-
+  
   pegarTokenPagina(){
     let token = this.videos.pop()
     //console.log(token.nextPageToken)
     return token.nextPageToken
-  }
-
-  grupoColunas(videos:[]){
-    const novasLinhas = [];
-
-    for(let index = 0; index < videos.length; index +=3){
-      novasLinhas.push(videos.slice(index,index + 3))
-    }
-
-    return novasLinhas;
   }
 }

@@ -6,6 +6,7 @@ import { ListaVideosThumbnailComponent } from './lista-videos-thumbnail/lista-vi
 import { HomeComponent } from './home/home.component';
 import { VideoDetalhesComponent } from './video-detalhes/video-detalhes.component';
 import { PesquisaVideoComponent } from './pesquisa-video/pesquisa-video.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PesquisaVideoComponent } from './pesquisa-video/pesquisa-video.componen
         ListaVideosThumbnailComponent
     ],
     imports:[
-        CommonModule
+        CommonModule,
+        AngularFontAwesomeModule
     ]
 })
 export class VideosThumbnailModule {

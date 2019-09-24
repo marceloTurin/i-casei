@@ -1,7 +1,6 @@
 <pesquisa-video></pesquisa-video>
 
 <div class="container">
-  {{videos}}
   <ol class="list-unstyled row" *ngFor="let pagina of videos">
     <li *ngFor="let video of pagina.items; let i = index;" class="col-md-4 col-ms-12">
       <video-thumbnail 

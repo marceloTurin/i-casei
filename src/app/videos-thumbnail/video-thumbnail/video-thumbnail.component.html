@@ -1,8 +1,7 @@
 <div (click)="detalheVideo(videoID)" class="mt-3 mb-3">
     <img class="img-thumbnail mb-2" [src]="url">    
-    <h4>{{ tituloVideo }}</h4>
-    <strong><h6>{{ nomeCanal }}</h6></strong>
-    <p> {{ descricaoVideo }} </p>
-    <button class="btn btn-success" (click)="detalheVideo(videoID)" >Detalhe do Video</button>
-    {{videoID}} 
+    <h4 class="text-white">{{ tituloVideo }}</h4>
+    <strong><h6 class="cor-texto">{{ nomeCanal }}</h6></strong>
+    <p class="cor-texto"> {{ descricaoVideo }} </p>
+    <button class="btn btn-secondary" (click)="detalheVideo(videoID)" >Detalhe do Video</button>
 </div>
