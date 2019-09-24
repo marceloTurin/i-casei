@@ -10,16 +10,15 @@ import { ListaVideosThumbnailComponent } from '../lista-videos-thumbnail/lista-v
 })
 export class PesquisaVideoComponent implements OnInit {
 
-
   buscaInput: string = '';
-  termoUrl: string =  '';
- 
+  termoUrl: string =  ''; 
 
   constructor(
     public listaVideo: ListaVideosThumbnailComponent,
     private router : Router,
     private activatedRoute : ActivatedRoute
-    ){} //Injetando o servico de video service
+  ){} //Injetando o servico de video service
+
   pesquisaVideo(buscaInput: string){
       if(this.pegaRotaAtual() == '/home'){
         this.router.navigate(['/videos'], 
@@ -32,13 +31,10 @@ export class PesquisaVideoComponent implements OnInit {
       } 
   }
 
-
-
   ngOnInit() {
     this.animacaoPesquisa()
     //this.pesquisaVideo()
   }
-
 
   pegaRotaAtual() {
     let url = this.router.url;
@@ -52,9 +48,5 @@ export class PesquisaVideoComponent implements OnInit {
       document.querySelector("#pesquisa").classList.add('animaIn')
       document.querySelector("#pesquisa").classList.remove('center');
     } 
-    
   }
-
-
-
 }

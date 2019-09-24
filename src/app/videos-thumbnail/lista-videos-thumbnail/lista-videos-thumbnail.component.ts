@@ -24,17 +24,16 @@ export class ListaVideosThumbnailComponent implements OnInit {
 
   ngOnInit():void{
 
-    //const termoPesquisado =  this.activatedRoute.snapshot.params.termoPesquisado
     this.activatedRoute.queryParams.subscribe( params => this.buscaInput = params.termoPesquisado )
     this.pesquisaVideo(this.buscaInput)   
   }
+
   pesquisaVideo(buscaInput: string){
     this.videoService
       .pesquisaVideos(buscaInput)
       .subscribe((videos)=>{
         this.videos = [];
         this.videos.push(videos)
-        //this.activatedRoute.snapshot.params.termoPesquisado = buscaInput
       });
   }
 
@@ -43,13 +42,11 @@ export class ListaVideosThumbnailComponent implements OnInit {
       .loadVideo(this.pegarTokenPagina(),this.buscaInput)
       .subscribe((proximosVideos)=>{
           this.videos.push(proximosVideos)
-          console.log(this.videos)
       })
   }
   
   pegarTokenPagina(){
     let token = this.videos[this.videos.length -1]
-    console.log(token.nextPageToken)
     return token.nextPageToken
   }
 }

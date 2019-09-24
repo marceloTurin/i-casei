@@ -12,14 +12,16 @@ export class VideoDetalhesComponent implements OnInit {
   videoID : string;
   videoDetalhe = [];
 
-  constructor(private activatedRoute: ActivatedRoute,private detalheService : VideoDetalheService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private detalheService : VideoDetalheService
+  ){}
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe( params => this.videoID = params.videoID )
     this.getDetalhe()
   }
-
-
+  
   getDetalhe(){
     this.detalheService
       .mostraDetalhe(this.videoID)

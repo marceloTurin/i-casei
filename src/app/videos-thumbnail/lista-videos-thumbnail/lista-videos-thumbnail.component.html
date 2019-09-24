@@ -1,6 +1,6 @@
 <pesquisa-video></pesquisa-video>
 
-<div class="container">
+<div class="container" *ngIf="videos[0].items.length > 1; else messageTemplate">
   <ol class="list-unstyled row" *ngFor="let pagina of videos">
     <li *ngFor="let video of pagina.items; let i = index;" class="col-md-4 col-ms-12">
       <video-thumbnail 
@@ -15,6 +15,9 @@
     <div class="text-center mt-3 mb-3">
         <button class="btn btn-secondary text-center" (click)="loadVideo()" >Carrega Videos</button>
     </div>
-   
 </div>
 
+<ng-template #messageTemplate>
+  <p class="text-center  text-white">Não encontramos vídeos com o termo buscado.</p>
+  <p class="text-center  text-white">Utilize outras palavras-chave.</p>
+</ng-template>

@@ -9,10 +9,6 @@ const routes:Routes = [
     {path: 'home', component:HomeComponent},
     {path: 'videos',component:ListaVideosThumbnailComponent},
     {path: 'videoDetalhes',component: VideoDetalhesComponent}
-
-   
-
-    //{path: ':termoPesquisado', component: ListaVideosThumbnailComponent}
 ]
 
 @NgModule({
