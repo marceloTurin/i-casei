@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'video-thumbnail',
@@ -12,5 +13,12 @@ export class VideoThumbnailComponent {
     @Input() nomeCanal = '';
     @Input() descricaoVideo = '';
     @Input() videoID : Object[] = [];
+
+    constructor(private router : Router){}
+
+    detalheVideo(videoID : string){
+        this.router.navigate(['/videoDetalhes'], 
+        { queryParams: {videoID }})
+    }
 
 }

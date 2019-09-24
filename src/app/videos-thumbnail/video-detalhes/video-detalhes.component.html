@@ -1,3 +1,33 @@
-<p>
-  video-detalhes works!
-</p>
+<div class="container">  
+  <div class="row">
+    <div class="col-12 col-sm-12">
+      <h4 class="text-center">{{videoDetalhe.items[0].snippet.title }}</h4>
+      <div class="text-center">
+        <img class="img-thumbnail mt-4" [src]="videoDetalhe.items[0].snippet.thumbnails.maxres.url">
+      </div>
+      
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-4 col-sm-4">
+       <strong> {{ videoDetalhe.items[0].snippet.channelTitle  }} </strong>
+    </div>
+    <div class="offset-4 col-2 col-sm-2 text-right">
+      {{ videoDetalhe.items[0].statistics.likeCount}}
+    </div>
+    <div class="col-2 col-sm-2 text-right">
+        {{ videoDetalhe.items[0].statistics.dislikeCount}}
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-8 col-sm-8">
+      {{ videoDetalhe.items[0].snippet.description}}
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3 col-sm-3">
+        <strong> {{ videoDetalhe.items[0].statistics.viewCount}} </strong>
+    </div>
+  </div>
+</div>

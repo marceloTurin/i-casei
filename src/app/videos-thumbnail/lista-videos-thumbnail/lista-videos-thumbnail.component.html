@@ -1,9 +1,9 @@
 <pesquisa-video></pesquisa-video>
 
 <div class="container">
-
-  <ol class="list-unstyled row">
-    <li *ngFor="let video of videos.items; let i = index;" class="col-md-4 col-ms-12">
+  {{videos}}
+  <ol class="list-unstyled row" *ngFor="let pagina of videos">
+    <li *ngFor="let video of pagina.items; let i = index;" class="col-md-4 col-ms-12">
       <video-thumbnail 
         [url]='video.snippet.thumbnails.high.url'
         [tituloVideo]='video.snippet.title'
@@ -13,5 +13,7 @@
       ></video-thumbnail>
     </li>
   </ol>
+  
+  <button class="btn btn-info" (click)="loadVideo()" >Carrega Videos</button>
 </div>
 

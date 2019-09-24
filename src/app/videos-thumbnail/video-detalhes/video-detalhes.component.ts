@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { VideoDetalheService } from './video-detalhes.service';
 
 @Component({
   selector: 'app-video-detalhes',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoDetalhesComponent implements OnInit {
 
-  constructor() { }
+  videoID : string;
+  videoDetalhe = [];
+
+  constructor(private activatedRoute: ActivatedRoute,private detalheService : VideoDetalheService) { }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe( params => this.videoID = params.videoID )
+    this.getDetalhe()
+  }
+
+
+  getDetalhe(){
+    this.detalheService
+      .mostraDetalhe(this.videoID)
+      .subscribe((detalheVideo)=>{
+        this.videoDetalhe = detalheVideo
+        console.log(this.videoDetalhe)
+      })
   }
 
 }
