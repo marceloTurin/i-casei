@@ -29,4 +29,8 @@ export class VideoDetalhesComponent implements OnInit {
       })
   }
 
+  voltarVideo() {
+    window.history.back();
+  }
+
 }

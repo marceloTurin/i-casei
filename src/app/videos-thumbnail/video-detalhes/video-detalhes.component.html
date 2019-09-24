@@ -1,14 +1,17 @@
 <div class="container">  
+  <div class="mt-4">
+    <button class="btn btn-secondary" (click)="voltarVideo()">Voltar</button>
+  </div>
   <div class="row mt-2">
     <div class="col-12 col-sm-12">
-     <strong> <h4 class="text-center text-white">{{videoDetalhe.items[0].snippet.title }}</h4> </strong> 
+     <strong> <h4 class="text-center text-white mb-3">{{videoDetalhe.items[0].snippet.title }}</h4> </strong> 
       <div class="text-center">
-        <img class="img-thumbnail mt-4" [src]="videoDetalhe.items[0].snippet.thumbnails.maxres.url">
+        <img class="img-thumbnail" [src]="videoDetalhe.items[0].snippet.thumbnails.standard.url">
       </div>
       
     </div>
   </div>
-  <div class="row mt-2">
+  <div class="row mt-4">
     <div class="col-4 col-sm-4">
        <strong class="text-white"> {{ videoDetalhe.items[0].snippet.channelTitle  }} </strong>
     </div>

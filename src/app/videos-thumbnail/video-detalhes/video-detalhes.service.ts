@@ -4,7 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 
 
 const API = 'https://www.googleapis.com/youtube/v3/videos?id=';
-const APIKey =  'AIzaSyBlcCSVJHndx4Qw1pyeLy-a1t0vfxf1b3U';
+const APIKey =  'AIzaSyBDCs4rI1LFvd29dvPq4QEAueTvJRRaYqE';
 
 
 @Injectable({providedIn: 'root'})

@@ -13,6 +13,7 @@ import { Injectable } from "@angular/core";
 export class ListaVideosThumbnailComponent implements OnInit {
 
   videos = [];
+  proximosVideos = [];
   buscaInput: string = '';
  
 
@@ -33,25 +34,22 @@ export class ListaVideosThumbnailComponent implements OnInit {
       .subscribe((videos)=>{
         this.videos = [];
         this.videos.push(videos)
-        console.log(this.videos)
         //this.activatedRoute.snapshot.params.termoPesquisado = buscaInput
       });
   }
 
   loadVideo(){
     this.videoService
-      .loadVideo(this.pegarTokenPagina())
+      .loadVideo(this.pegarTokenPagina(),this.buscaInput)
       .subscribe((proximosVideos)=>{
-        this.videos.push(proximosVideos)
-        console.log(this.videos)
-    
+          this.videos.push(proximosVideos)
+          console.log(this.videos)
       })
-
   }
   
   pegarTokenPagina(){
-    let token = this.videos.pop()
-    //console.log(token.nextPageToken)
+    let token = this.videos[this.videos.length -1]
+    console.log(token.nextPageToken)
     return token.nextPageToken
   }
 }
